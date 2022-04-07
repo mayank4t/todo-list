@@ -6,7 +6,7 @@ node
     }
     stage('Build Docker Image')
     {
-        sh 'docker build -t mayank4t/pythonflask .'
+        sh 'docker build -t mayank4t/todo-list .'
     }
     stage('Push Docker Image')
     {
