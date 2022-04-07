@@ -1,3 +1,3 @@
-FROM httpd
-WORKDIR /var/www/html/
-ADD . /var/www/html/
+FROM nginx 
+WORKDIR /usr/share/nginx/html/ 
+ADD . /usr/share/nginx/html/
