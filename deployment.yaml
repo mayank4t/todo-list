@@ -10,7 +10,7 @@ spec:
     port: 6000
     targetPort: 5000
   externalIPs:
-  - 34.131.22.182
+  - 34.131.188.202
   type: LoadBalancer
 ---
 apiVersion: apps/v1
