@@ -10,7 +10,7 @@ spec:
     port: 8080
     targetPort: 80
   externalIPs:
-  - 34.131.188.202
+  - 34.131.86.236
   type: LoadBalancer
 ---
 apiVersion: apps/v1
@@ -21,7 +21,7 @@ spec:
   selector:
     matchLabels:
       app: todo-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
