@@ -1,0 +1,26 @@
+node
+{
+    stage('GIT clone')
+    {
+        git branch: 'main', credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/mayank4t/testgcp-kubernetes-deploy.git'
+    }
+    stage('Build Docker Image')
+    {
+        sh 'docker build -t mayank4t/pythonflask .'
+    }
+    stage('Push Docker Image')
+    {
+        withCredentials([usernamePassword(credentialsId: 'Docker_HUB_CREDENTIALS', passwordVariable: 'Docker_HUB_CREDENTIALS', usernameVariable: 'mayan4t')]) 
+        {
+            sh "docker login -u mayank4t -p ${Docker_HUB_CREDENTIALS}"  
+        } 
+        sh 'docker push mayank4t/todo-list'
+    }
+    stage("Deploy To Kuberates Cluster")
+    {
+       kubeconfig(credentialsId: 'KUBERNETES_CREDENTIAL', serverUrl: '') 
+       {
+           sh "kubectl create -f deployment.yaml"
+       }
+    }
+}
