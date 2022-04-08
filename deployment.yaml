@@ -10,7 +10,7 @@ spec:
     port: 8080
     targetPort: 80
   externalIPs:
-  - 34.131.86.236
+  - 34.131.244.180
   type: LoadBalancer
 ---
 apiVersion: apps/v1
